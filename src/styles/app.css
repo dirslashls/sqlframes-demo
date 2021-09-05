@@ -1,0 +1,20 @@
+body {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
+	width: 95%;
+}
+
+/* common theme */
+:root, :root > * {
+	background-color: var(--background-color);
+	color: var(--color);
+}
+
+:fullscreen {
+	background-color: var(--background-color);
+}
+
+:-webkit-full-screen {
+	background-color: var(--background-color);
+}

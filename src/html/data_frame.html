@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html data-theme='dark'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="color-scheme" content="light dark">
+		<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js" integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" data-theme='light' disabled type="text/css" href="../../node_modules/@sqlframes/sqlframes/dist/styles/themes/light.css"/>
+		<link rel="stylesheet" data-theme='dark' type="text/css" href="../../node_modules/@sqlframes/sqlframes/dist/styles/themes/dark.css"/>
+		<link rel="stylesheet" type="text/css" href="../../node_modules/@sqlframes/sqlframes/dist/repl/index.css"/>
+		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
+		<title>SQL Frames Demo</title>
+	</head>
+	<body>
+		<div style="padding:0px 5px;margin-bottom:5px;background-color:rgb(36,37,38);color:white;">
+			<a href='../../index.html'>Home</a>
+		</div>
+		<div class='repl' style="width:fit-content;">
+			<div id="sqldf" style="display:flex;flex-direction:row;"></div>
+			<div style="font-weight:bold;text-align:right;"><a href='https:sqlframes.com/'>Powered by SQL Frames</a></div>
+		</div>
+		<div style="font-weight:bold;text-align:right;">Powered by SQL Frames</div>
+		<script type="module">
+			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
+			import sfloader from '../../node_modules/@sqlframes/sqlframes/dist/main.js';
+			sfloader.load('../../node_modules/@sqlframes/sqlframes/dist/repl/index',function(sqlframes) {
+				const { DataFrame, View } = sqlframes.sqlframes;
+				const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv');
+				View.render(document.getElementById('sqldf'),df);
+			});
+		</script>
+	</body>
+</html>
