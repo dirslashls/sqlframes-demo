@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@sqlframes/sqlframes@file:../lsdash/sqlframes-sqlframes-0.9.4.tgz":
-  "integrity" "sha512-9eNmOlbU7KkMdCDUi55ZvsM5ObGLd+7CE6uaH/O9dMQ0F/ZSHS+DZK+QZf2+m6SZ97y/bE+GpVXkg42yNwIMZw=="
-  "resolved" "file:../lsdash/sqlframes-sqlframes-0.9.4.tgz"
-  "version" "0.9.4"
+"@sqlframes/sqlframes@file:../lsdash/sqlframes-sqlframes-0.9.5.tgz":
+  "integrity" "sha512-sfIpA5XqTFSRQSzqlpk/9k5LqmdMRxYytt4avIT+x1cO5EiM2seGmOjwormP7RbCr2cQTEBidlUZ1rsQQGxelw=="
+  "resolved" "file:../lsdash/sqlframes-sqlframes-0.9.5.tgz"
+  "version" "0.9.5"
   dependencies:
     "echarts" "^5.1.2"
     "highlight.js" "^11.0.1"
