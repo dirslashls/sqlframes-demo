@@ -15,11 +15,11 @@ This repository contains code to try out [SQL Frames](https://sqlframes.com/) an
 ```
 
 3. Install SQL Frames library (at present it is not available via npm).
-Say the library is provided as sqlframes-sqlframes-x.y.z.tgz (x.y.z represents
+Say the library is provided as sqlframes-abc-x.y.z.tgz (x.y.z represents
 a version), then it can be installed into this project as
 
 ```sh
-npm install [path to sqlframes-sqlframes-x.y.z.tgz] --no-save
+npm install [path to sqlframes-abc-x.y.z.tgz] --no-save
 ```
 
 This will install SQL Frames dependency
