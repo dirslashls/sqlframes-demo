@@ -3,12 +3,9 @@
 
 
 "@sqlframes/sqlframes@file:../lsdash/sqlframes-sqlframes-0.9.5.tgz":
-  "integrity" "sha512-sfIpA5XqTFSRQSzqlpk/9k5LqmdMRxYytt4avIT+x1cO5EiM2seGmOjwormP7RbCr2cQTEBidlUZ1rsQQGxelw=="
+  "integrity" "sha512-2yiOYBUoHMe/HfwP3d19VtqSdCdFplYRNkh7LCimUL8WT+FKa+MSKLfNBFyGiyUzkyLLQKSHRQ9Njv85HkZDLw=="
   "resolved" "file:../lsdash/sqlframes-sqlframes-0.9.5.tgz"
   "version" "0.9.5"
-  dependencies:
-    "echarts" "^5.1.2"
-    "highlight.js" "^11.0.1"
 
 "async@^2.6.2":
   "integrity" "sha512-zflvls11DCy+dQWzTW2dzuilv8Z5X/pjfmZOWba6TNIVDm+2UDaJmXSOXlasHKfNBs8oo3M0aT50fDEWfKZjXg=="
@@ -46,14 +43,6 @@
   "version" "3.2.7"
   dependencies:
     "ms" "^2.1.1"
-
-"echarts@^5.1.2":
-  "integrity" "sha512-7CrCKGRjFdpLIJ/Yt1gpHeqs5PiCem2GHPdWZPwKl7WSYeZu0Qzm1bcCFe9/b4dfVaL1zlY4JmdzaVwKksVeqg=="
-  "resolved" "https://registry.npmjs.org/echarts/-/echarts-5.2.0.tgz"
-  "version" "5.2.0"
-  dependencies:
-    "tslib" "2.3.0"
-    "zrender" "5.2.0"
 
 "eventemitter3@^4.0.0":
   "integrity" "sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw=="
@@ -95,11 +84,6 @@
   "integrity" "sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw=="
   "resolved" "https://registry.npmjs.org/he/-/he-1.2.0.tgz"
   "version" "1.2.0"
-
-"highlight.js@^11.0.1":
-  "integrity" "sha512-JOySjtOEcyG8s4MLR2MNbLUyaXqUunmSnL2kdV/KuGJOmHZuAR5xC54Ko7goAXBWNhf09Vy3B+U7vR62UZ/0iw=="
-  "resolved" "https://registry.npmjs.org/highlight.js/-/highlight.js-11.2.0.tgz"
-  "version" "11.2.0"
 
 "http-proxy@^1.18.0":
   "integrity" "sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ=="
@@ -200,11 +184,6 @@
     "get-intrinsic" "^1.0.2"
     "object-inspect" "^1.9.0"
 
-"tslib@2.3.0":
-  "integrity" "sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz"
-  "version" "2.3.0"
-
 "union@~0.5.0":
   "integrity" "sha512-N6uOhuW6zO95P3Mel2I2zMsbsanvvtgn6jVqJv4vbVcz/JN0OkL9suomjQGmWtxJQXOCqUJvquc1sMeNz/IwlA=="
   "resolved" "https://registry.npmjs.org/union/-/union-0.5.0.tgz"
@@ -216,10 +195,3 @@
   "integrity" "sha1-WvIvGMBSoACkjXuCxenC4v7tpyg="
   "resolved" "https://registry.npmjs.org/url-join/-/url-join-2.0.5.tgz"
   "version" "2.0.5"
-
-"zrender@5.2.0":
-  "integrity" "sha512-87v3gvB0lcWy48ObA/DwrhQ95ADMMRhECVrXmHDFCBNvbxHFfEDZtrZh4VmVjLAeFAjimY4PyZ65rbLCivdszA=="
-  "resolved" "https://registry.npmjs.org/zrender/-/zrender-5.2.0.tgz"
-  "version" "5.2.0"
-  dependencies:
-    "tslib" "2.3.0"

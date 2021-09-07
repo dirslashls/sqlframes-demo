@@ -36,23 +36,32 @@
 			});
 		</script>
 		<div>
-			Use the following code for a quick example.
+		<h2>Code Snippets</h2>
+		<ul>
+			<li>
+				Use the following code for a quick example.
 <pre class='code'>
 const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv');
 const { groupBy, cube, agg: { count, sum }, where: { and, or, not, eq, gte } } = SQL;
 const gdf = df.gdf(groupBy(cube('type','net')));
 return [gdf.chart.bar('net','Count'),gdf];
 </pre>
-
-	To disable showing inline SQL, use
+			</li>
+			<li>To disable showing inline SQL, use
 <pre class='code'>
 SQL.ShowSQL = false;
 </pre>
-
-	To toggle dark/light mode, use
+			</li>
+			<li>To toggle dark/light mode, use
 <pre class='code'>
 document.documentElement.dataset.theme = 'dark'; // 'light'
 </pre>
+			</li>
+		</ul>
+		<h2>References</h2>
+		<ul>
+			<li><a href='https://catalog.data.gov/dataset?res_format=CSV'>Data.gov Datasets</a></li>
+		</ul>
 		</div>
 	</body>
 </html>
