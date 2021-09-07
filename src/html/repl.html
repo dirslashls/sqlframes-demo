@@ -10,12 +10,18 @@
 		<link rel="stylesheet" type="text/css" href="../../node_modules/@sqlframes/sqlframes/dist/apps/repl/index.css"/>
 		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
 		<title>SQL Frames REPL App Demo</title>
+		<style>
+			.code {
+				background-color:black;
+				color:white;
+			}
+		</style>
 	</head>
 	<body>
 		<div style="padding:0px 5px;margin-bottom:5px;background-color:rgb(36,37,38);color:white;">
 			<a href='../../index.html'>Home</a>
 		</div>
-		<div id="repl" style="min-height:1500px;"></div>
+		<div id="repl" style="min-height:600px;"></div>
 		<div style="font-weight:bold;text-align:right;">Powered by SQL Frames</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
@@ -29,5 +35,24 @@
 				repl.repl(document.getElementById('repl'));
 			});
 		</script>
+		<div>
+			Use the following code for a quick example.
+<pre class='code'>
+const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv');
+const { groupBy, cube, agg: { count, sum }, where: { and, or, not, eq, gte } } = SQL;
+const gdf = df.gdf(groupBy(cube('type','net')));
+return [gdf.chart.bar('net','Count'),gdf];
+</pre>
+
+	To disable showing inline SQL, use
+<pre class='code'>
+SQL.ShowSQL = false;
+</pre>
+
+	To toggle dark/light mode, use
+<pre class='code'>
+document.documentElement.dataset.theme = 'dark'; // 'light'
+</pre>
+		</div>
 	</body>
 </html>
