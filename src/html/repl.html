@@ -57,6 +57,16 @@ SQL.ShowSQL = false;
 document.documentElement.dataset.theme = 'dark'; // 'light'
 </pre>
 			</li>
+			<li>Storing variables for reuse using `S` (Scratch)
+<pre class='code'>
+if(!S.df) {
+	S.df = DataFrame.fromDataSource();
+}
+const df = S.df;
+// data transformation logic
+return [df];
+</pre>
+			</li>
 		</ul>
 		<h2>References</h2>
 		<ul>
