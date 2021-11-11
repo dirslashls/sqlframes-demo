@@ -10,6 +10,11 @@
 		<link rel="stylesheet" type="text/css" href="../../node_modules/@sqlframes/repl-app/dist/index.css"/>
 		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
 		<title>SQL Frames Demo</title>
+		<style>
+			.report {
+				padding: 5px;
+			}
+		</style>
 	</head>
 	<body>
 		<div style="padding:0px 5px;margin-bottom:5px;background-color:rgb(36,37,38);color:white;">
@@ -17,19 +22,23 @@
 		</div>
 		<div class='repl'>
 			<div id="sqldf" style="display:flex;flex-direction:row;"></div>
-		</div>
-		<div class='repl'>
-			<div id="sqldf_pdf" style="display:flex;flex-direction:row;"></div>
+			<div class="report" style="display:flex;flex-direction:row;">
+				<div class="report" id="sqldf_pdf"></div>
+				<div class="report" id="sqldf_chart"></div>
+			</div>
 		</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
 			import sfloader from '../../node_modules/@sqlframes/repl-app/dist/main.js';
 			sfloader.load('../../node_modules/@sqlframes/repl-app/dist/index',function(sqlframes) {
-				const { DataFrame, View } = sqlframes.sqlframes;
+				const { DataFrame, View, SQL } = sqlframes.sqlframes;
 				const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv').fdf().pdf();
 				View.render(document.getElementById('sqldf'),df);
 				const pdf = df.pdf('time','latitude','longitude');
 				View.render(document.getElementById('sqldf_pdf'),pdf);
+				const { groupBy, rollup, agg: { count } } = SQL;
+				const gdf = df.gdf(groupBy(rollup('type','status')));
+				View.render(document.getElementById('sqldf_chart'),gdf.chart.bar('type','Count'));
 			});
 		</script>
 	</body>
