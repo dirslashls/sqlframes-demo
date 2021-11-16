@@ -1,36 +1,13 @@
 // this is a static js file
 // howerver, it can be thought of as dynamically created
 
-
 // Step 1: create parameters, they may or may not require a dataset
 async function createParameters(dashboard) {
 	const { DataFrame, SQL, Time } = dashboard.sqlframes;
 	{
-		const dsconfigs = [];
-		// dynamic code snippet from dashboard config begins
-		dsconfigs.push({
-			id: 'earthquakes',
-			url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary',
-			urlProvider: (config) => {
-				const dsType = dashboard.getParameter('dsType') ?? 'all_week';
-				return `${config.url}/${dsType}.csv`;
-			}
-		});
-		// dynamic code snippet from dashboard config begins
-
-		dashboard.setDSConfigs(dsconfigs);
-
 		// dynamic code snippet from dashboard config begins {
 		dashboard.init = async () => {
 			dashboard.initParameter('dsType','all_week');
-			const df = await dashboard.getDataset({ id: 'earthquakes' });
-			df.on(df.handler((msg) => {
-				if(df.needsComputing) return;
-				dashboard.initParams();
-				dashboard.createParam('status',df);
-				dashboard.renderParameters();
-			}));
-			dashboard.setDataset('fdf',df.fdf());
 		}
 		// dynamic code snippet from dashboard config ends }
 
@@ -56,6 +33,29 @@ async function createDatasets(dashboard) {
 	{
 		// dynamic code snippet from dashboard config begins {
 		dashboard.createSharedDatasets = async() => {
+			const dsconfigs = [];
+			// dynamic code snippet from dashboard config begins
+			dsconfigs.push({
+				id: 'earthquakes',
+				url: 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary',
+				urlProvider: (config) => {
+					const dsType = dashboard.getParameter('dsType') ?? 'all_week';
+					return `${config.url}/${dsType}.csv`;
+				}
+			});
+			// dynamic code snippet from dashboard config begins
+			dashboard.setDSConfigs(dsconfigs);
+
+			// dynamic code snippet from dashboard config begins
+			const df = await dashboard.getDataset({ id: 'earthquakes' });
+			df.on(df.handler((msg) => {
+				if(df.needsComputing) return;
+				dashboard.initParams();
+				dashboard.createParam('status',df);
+				dashboard.renderParameters();
+			}));
+			dashboard.setDataset('fdf',df.fdf());
+			// dynamic code snippet from dashboard config ends
 		}
 		// dynamic code snippet from dashboard config begins }
 	}
@@ -113,8 +113,9 @@ async function createReports(dashboard) {
 async function main(dashboard) {
 	await createParameters(dashboard);
 	await createDatasets(dashboard);
-	await dashboard.renderParameters();
 	await createReports(dashboard);
+	await dashboard.createSharedDatasets();
+	await dashboard.renderParameters();
 	await dashboard.renderReports();
 }
 
