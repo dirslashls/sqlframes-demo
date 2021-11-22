@@ -42,26 +42,24 @@
 		</style>
 	</head>
 	<body>
-		<div class='repl'>
-			<div id='dashboard'>
-				<div class='params'>
-					<div><a href='../../index.html'>Home</a></div>
-					<div data-id='dsType' class='param'>
-						<select name='dsType'>
-							<option value='all_week' selected>All week</option>
-							<option value='all_month'>All month</option>
-						</select>
-					</div>
-					<div data-id='status' class='param'></div>
+		<div id='dashboard' class='sqlframes'>
+			<div class='params'>
+				<div><a href='../../index.html'>Home</a></div>
+				<div data-id='dsType' class='param'>
+					<select name='dsType'>
+						<option value='all_week' selected>All week</option>
+						<option value='all_month'>All month</option>
+					</select>
 				</div>
-				<div data-id='r1' class='report'></div>
-				<div style='display:flex;flex-direction: row'>
-					<div class='report' style='width:33%;'>
-						<div data-id='r2' class='report-content'></div>
-					</div>
-					<div data-id='r3' class='report' style='width:33%;'></div>
-					<div data-id='r4' class='report' style='width:33%'></div>
+				<div data-id='status' class='param'></div>
+			</div>
+			<div data-id='r1' class='report'></div>
+			<div style='display:flex;flex-direction: row'>
+				<div class='report' style='width:33%;'>
+					<div data-id='r2' class='report-content'></div>
 				</div>
+				<div data-id='r3' class='report' style='width:33%;'></div>
+				<div data-id='r4' class='report' style='width:33%'></div>
 			</div>
 		</div>
 		<script type="module">
