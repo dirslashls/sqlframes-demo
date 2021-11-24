@@ -29,7 +29,7 @@
 		</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
-			import sfloader from '../../node_modules/@sqlframes/repl-app/dist/main.js';
+			import sfloader from '../../node_modules/@sqlframes/repl-app/dist/main.mjs';
 			sfloader.load('../../node_modules/@sqlframes/repl-app/dist/index',function(sqlframes) {
 				const { DataFrame, View, SQL } = sqlframes.sqlframes;
 				const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv').fdf().pdf();
