@@ -1,6 +1,6 @@
 {
   "name": "@sqlframes/sqlframes-demo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "For trying out SQL Frames locally",
   "main": "index.js",
   "scripts": {
@@ -20,5 +20,8 @@
   "license": "ISC",
   "devDependencies": {
     "http-server": "^13.0.1"
+  },
+  "dependencies": {
+    "@sqlframes/repl-app": "^0.10.1"
   }
 }
