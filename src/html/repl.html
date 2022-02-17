@@ -5,9 +5,9 @@
 		<meta name="color-scheme" content="light dark">
 		<meta http-equiv="Content-Language" content="en">
 		<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js" integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<link rel="stylesheet" data-theme='light' type="text/css" href="../../node_modules/@sqlframes/repl-app/dist/styles/themes/light.css"/>
-		<link rel="stylesheet" data-theme='dark' disabled type="text/css" href="../../node_modules/@sqlframes/repl-app/dist/styles/themes/dark.css"/>
-		<link rel="stylesheet" type="text/css" href="../../node_modules/@sqlframes/repl-app/dist/index.css"/>
+		<link rel="stylesheet" data-theme='light' type="text/css" href="//unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/light.css"/>
+		<link rel="stylesheet" data-theme='dark' disabled type="text/css" href="//unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/dark.css"/>
+		<link rel="stylesheet" type="text/css" href="//unpkg.com/@sqlframes/repl-app@latest/dist/index.css"/>
 		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
 		<title>SQL Frames REPL App Demo</title>
 		<style>
@@ -25,10 +25,10 @@
 		<div style="font-weight:bold;text-align:right;">Powered by SQL Frames</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
-			import sfloader from '../../node_modules/@sqlframes/repl-app/dist/main.mjs';
-			sfloader.load('../../node_modules/@sqlframes/repl-app/dist/index',function(sf) {
+			import sfloader from '//unpkg.com/@sqlframes/repl-app@latest/dist/main.mjs';
+			sfloader.load('//unpkg.com/@sqlframes/repl-app@latest/dist/index',function(sf) {
 				sf.sqlframes.View.ColorScheme.setDarkMode(2);
-				sf.repl.REPLView.addExtraLibs('../../node_modules/@sqlframes/repl-app/dist/api.d.ts','api.d.ts');
+				sf.repl.REPLView.addExtraLibs('//unpkg.com/@sqlframes/repl-app@latest/dist/api.d.ts','api.d.ts');
 				const { SQL } = sf.sqlframes;
 				SQL.ShowSQL = true;
 				SQL.Databases = [SQL.DatabaseType.SQLite3,SQL.DatabaseType.PostgreSQL,SQL.DatabaseType.MySQL,SQL.DatabaseType.Oracle];
