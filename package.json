@@ -20,8 +20,5 @@
   "license": "ISC",
   "devDependencies": {
     "http-server": "^13.0.1"
-  },
-  "dependencies": {
-    "@sqlframes/repl-app": "^0.10.1"
   }
 }
