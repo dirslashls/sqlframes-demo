@@ -11,6 +11,8 @@
 		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
 		<title>SQL Frames Demo</title>
 		<style>
+			@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
 			.report {
 				padding: 5px;
 			}
@@ -30,7 +32,8 @@
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
 			import sfloader from 'https://unpkg.com/@sqlframes/repl-app@latest/dist/main.mjs';
-			sfloader.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',function(sqlframes) {
+			sfloader.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',async (sqlframes) => {
+				await document.fonts.load('16px Roboto Mono');
 				const { DataFrame, View, SQL } = sqlframes.sqlframes;
 				const df = DataFrame.fromURL('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv').fdf().pdf();
 				View.render(document.getElementById('sqldf'),df);
