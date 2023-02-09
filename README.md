@@ -48,10 +48,11 @@ docker run -p 49160:8080 -d sqlframes/sqlframes-demo
 4. Terminate the container (once done with the demo)
 
 		i. get the container id
-```sh
+	```sh
 	docker container ls
-```
+	```
+
 		ii. terminate the container
-```sh
-docker kill <container-id>
-```	
+	```sh
+	docker kill <container-id>
+	```	
