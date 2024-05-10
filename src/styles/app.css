@@ -7,14 +7,14 @@ body {
 
 /* common theme */
 :root, :root > * {
-	background-color: var(--background-color);
-	color: var(--color);
+	background-color: var(--sf-background-color);
+	color: var(--sf-color);
 }
 
 :fullscreen {
-	background-color: var(--background-color);
+	background-color: var(--sf-background-color);
 }
 
 :-webkit-full-screen {
-	background-color: var(--background-color);
+	background-color: var(--sf-background-color);
 }
