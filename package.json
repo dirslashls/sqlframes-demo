@@ -20,5 +20,6 @@
   "license": "ISC",
   "devDependencies": {
     "http-server": "^13.0.1"
-  }
+  },
+  "packageManager": "yarn@4.2.2"
 }
