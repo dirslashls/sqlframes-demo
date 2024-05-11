@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-theme='dark'>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Language" content="en">
+		<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js" integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" data-theme='light' type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/light.css"/>
+		<link rel="stylesheet" data-theme='dark' disabled type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/dark.css"/>
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/index.css"/>
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/@sqlframes/designer@latest/dist/sfdesigner_dt.css"/>
+        <link rel="stylesheet" type="text/css" href="http://localhost:8001/lsdash-designer/dist/sfdesigner_dt.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/react-grid-layout@1.4.2/css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../styles/app.css"/>
+		<title>SQL Frames Demo</title>
+		<style>
+			@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono");
+		</style>
+	</head>
+	<body>
+		<div style="padding:0px 5px;margin-bottom:5px;background-color:rgb(36,37,38);">
+			<a href='../../index.html' style="color:white;padding:5px;">Home</a>
+			<a href='sf_viewer.html' style="color:white;padding:5px;">Workbook Viewer</a>
+		</div>
+		<div class='sf'>
+			<div id="sf_designer"></div>
+		</div>
+		<script type="module">
+			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
+            document.fonts.load('16px Roboto Mono');
+			const sf_url = 'https://unpkg.com/@sqlframes/repl-app@latest';
+            const sfd_url = 'https://unpkg.com/@sqlframes/designer@latest';
+            // const sfd_url = 'http://localhost:8001/lsdash-designer';
+            const [sfd_loader,sfloader] = await Promise.all([import(`${sfd_url}/dist/loader.mjs`),import(`${sf_url}/dist/main.mjs`)]);
+			// load SQL Frames Designer first and then SQL Frames. The former will map preact/compat to preact.
+        	sfd_loader.loadDt(`${sfd_url}/dist/sfdesigner_dt.umd`,(dt) => {
+				sfloader.default.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',async (sf) => {
+                	const resp = await fetch('/dashboards/earthquakes.sfwb');
+                	const config = await resp.json();
+                	const changeListener = (config) => {
+                        console.debug(`config change`,config);
+                	}
+                	dt.renderWorkbookDesigner({ sf }, { config, changeListener }, document.getElementById("sf_designer"));
+                });
+            });
+		</script>
+	</body>
+</html>
