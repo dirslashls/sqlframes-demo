@@ -72,9 +72,7 @@
 				Dashboard.sqlframes = sf.sqlframes;
 				window.onbeforeunload = null;
 				const dashboard = new Dashboard(document.getElementById('dashboard'));
-				import('../js/dashboard1.js').then(async ({ main }) => {
-					await main(dashboard);
-				});
+				import('../js/dashboard1.js').then(({ main }) => main(dashboard));
 			});
 		</script>
 	<hr/>
