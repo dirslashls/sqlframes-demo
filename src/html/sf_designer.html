@@ -2,16 +2,16 @@
 <html data-theme='dark'>
 	<head>
 		<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Language" content="en">
 		<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.js" integrity="sha256-lIXwkX+X/PT2Ol6jZSAP/VfxI/RROCovmhrS4v1RrJs=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<link rel="stylesheet" data-theme='light' type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/light.css"/>
 		<link rel="stylesheet" data-theme='dark' disabled type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/styles/themes/dark.css"/>
 		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@sqlframes/repl-app@latest/dist/index.css"/>
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/@sqlframes/designer@latest/dist/sfdesigner_dt.css"/>
-        <link rel="stylesheet" type="text/css" href="http://localhost:8001/lsdash-designer/dist/sfdesigner_dt.css"/>
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/react-grid-layout@1.4.2/css/styles.css"/>
-        <link rel="stylesheet" type="text/css" href="../styles/app.css"/>
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@sqlframes/designer@latest/dist/sfdesigner_dt.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="http://localhost:8001/lsdash-designer/dist/sfdesigner_dt.css"/> -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/react-grid-layout@1.4.2/css/styles.css"/>
+		<link rel="stylesheet" type="text/css" href="../styles/app.css"/>
 		<title>SQL Frames Demo</title>
 		<style>
 			@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono");
@@ -27,22 +27,22 @@
 		</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2024/06/30"},"signature":"PXix6mTgXqjS2J0pssoKbwPUYxpkKyxKgIMYHg/JnJ8cPZoPDiATDziLANODQoeUXiEXmk1UqGCh3pO/XS6FEw=="};
-            document.fonts.load('16px Roboto Mono');
+			document.fonts.load('16px Roboto Mono');
 			const sf_url = 'https://unpkg.com/@sqlframes/repl-app@latest';
-            const sfd_url = 'https://unpkg.com/@sqlframes/designer@latest';
-            // const sfd_url = 'http://localhost:8001/lsdash-designer';
-            const [sfd_loader,sfloader] = await Promise.all([import(`${sfd_url}/dist/loader.mjs`),import(`${sf_url}/dist/main.mjs`)]);
+			const sfd_url = 'https://unpkg.com/@sqlframes/designer@latest';
+			// const sfd_url = 'http://localhost:8001/lsdash-designer';
+			const [sfd_loader,sfloader] = await Promise.all([import(`${sfd_url}/dist/loader.mjs`),import(`${sf_url}/dist/main.mjs`)]);
 			// load SQL Frames Designer first and then SQL Frames. The former will map preact/compat to preact.
-        	sfd_loader.loadDt(`${sfd_url}/dist/sfdesigner_dt.umd`,(dt) => {
+			sfd_loader.loadDt(`${sfd_url}/dist/sfdesigner_dt.umd`,(dt) => {
 				sfloader.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',async (sf) => {
-                	const resp = await fetch('/dashboards/earthquakes.sfwb');
-                	const config = await resp.json();
-                	const changeListener = (config) => {
-                        console.debug(`config change`,config);
-                	}
-                	dt.renderWorkbookDesigner({ sf }, { config, changeListener }, document.getElementById("sf_designer"));
-                });
-            });
+					const resp = await fetch('/dashboards/earthquakes.sfwb');
+					const config = await resp.json();
+					const changeListener = (config) => {
+						console.debug(`config change`,config);
+					}
+					dt.renderWorkbookDesigner({ sf }, { config, changeListener }, document.getElementById("sf_designer"));
+				});
+			});
 		</script>
 	</body>
 </html>
