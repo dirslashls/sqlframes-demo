@@ -66,9 +66,11 @@
 		</div>
 		<script type="module">
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2021/09/15"},"signature":"5+mrmt6pUM6gth6wkUVWDZBekvIp6FzmAAOqQww73PT9zkq9+uDLokzek0Q1M5g1Y99DfzVDmxlkOmKy7hZnDw=="};
-			import sfloader from 'https://unpkg.com/@sqlframes/repl-app@latest/dist/main.mjs';
+			const sf_url = 'https://unpkg.com/@sqlframes/repl-app@latest';
+			// const sf_url = 'http://localhost:8001/lsdash/apps/repl';
+			const sfloader = await import(`${sf_url}/dist/main.mjs`);
 			import { Dashboard } from '../js/dashboard.js';
-			sfloader.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',function(sf) {
+			sfloader.load(`${sf_url}/dist/index`,function(sf) {
 				Dashboard.sqlframes = sf.sqlframes;
 				window.onbeforeunload = null;
 				const dashboard = new Dashboard(document.getElementById('dashboard'));

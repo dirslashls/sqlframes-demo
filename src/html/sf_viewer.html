@@ -29,12 +29,13 @@
 			window.sqlframes_license = {"data":{"domain":"localhost","expiry_date":"2024/06/30"},"signature":"PXix6mTgXqjS2J0pssoKbwPUYxpkKyxKgIMYHg/JnJ8cPZoPDiATDziLANODQoeUXiEXmk1UqGCh3pO/XS6FEw=="};
 			document.fonts.load('16px Roboto Mono');
 			const sf_url = 'https://unpkg.com/@sqlframes/repl-app@latest';
+			// const sf_url = 'http://localhost:8001/lsdash/apps/repl';
 			const sfd_url = 'https://unpkg.com/@sqlframes/designer@latest';
 			// const sfd_url = 'http://localhost:8001/lsdash-designer';
 			const [sfd_loader,sfloader] = await Promise.all([import(`${sfd_url}/dist/loader.mjs`),import(`${sf_url}/dist/main.mjs`)]);
 			// load SQL Frames Designer first and then SQL Frames. The former will map preact/compat to preact.
 			sfd_loader.loadDt(`${sfd_url}/dist/sfdesigner_rt.umd`,(rt) => {
-				sfloader.load('https://unpkg.com/@sqlframes/repl-app@latest/dist/index',async (sf) => {
+				sfloader.load(`${sf_url}/dist/index`,async (sf) => {
 					const resp = await fetch('/dashboards/earthquakes.sfwb');
 					const config = await resp.json();
 					const changeListener = (config) => {
